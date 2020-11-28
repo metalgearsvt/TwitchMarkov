@@ -6,12 +6,12 @@ import markovify
 import re
 import traceback
 
-GENERATE_ON = 50
+GENERATE_ON = 35
 CLEAR_LOGS_AFTER = False
 ALLOW_MENTIONS = True
 UNIQUE = True
 SEND_MESSAGES = True
-CULL_OVER = 6000
+CULL_OVER = 8000
 TIME_TO_CULL = datetime.timedelta(hours=1)
 
 messageCount = 0
@@ -118,10 +118,10 @@ def handleAdminMessage(username, channel, sock):
         if message == Conf.CMD_CLEAR:
             if CLEAR_LOGS_AFTER == True:
                 CLEAR_LOGS_AFTER = False
-                sendMaintenance(sock, channel, "No longer clearing memory after message! betch200IQ")
+                sendMaintenance(sock, channel, "No longer clearing memory after message!")
             else:
                 CLEAR_LOGS_AFTER = True
-                sendMaintenance(sock, channel, "Clearing memory after every message! FeelsDankMan")
+                sendMaintenance(sock, channel, "Clearing memory after every message!")
             return True
         # Wipe logs
         if message == Conf.CMD_WIPE:
@@ -142,10 +142,10 @@ def handleAdminMessage(username, channel, sock):
         if message == Conf.CMD_UNIQUE:
             if UNIQUE:
                 UNIQUE = False
-                sendMaintenance(sock, channel, "Messages will no longer be unique. PogO")
+                sendMaintenance(sock, channel, "Messages will no longer be unique.")
             else:
                 UNIQUE = True
-                sendMaintenance(sock, channel, "Messages will now be unique. PogU")
+                sendMaintenance(sock, channel, "Messages will now be unique.")
             return True
         # Generate message on how many numbers.
         if message.split()[0] == Conf.CMD_SET_NUMBER:
@@ -156,13 +156,13 @@ def handleAdminMessage(username, channel, sock):
                     if num <= 0:
                         raise Exception
                     GENERATE_ON = num
-                    sendMaintenance(sock, channel, "Messages will now be sent after " + GENERATE_ON + " chat messages. DankG")
+                    sendMaintenance(sock, channel, "Messages will now be sent after " + GENERATE_ON + " chat messages.")
             except:
                     sendMaintenance(sock, channel, "Current value: " + str(GENERATE_ON) + ". To set, use: " + str(Conf.CMD_SET_NUMBER) + " [number of messages]")
             return True
         # Check if alive.
         if message == Conf.CMD_ALIVE:
-            sendMaintenance(sock, channel, "Yeah, I'm alive and learning. betch2IQ")
+            sendMaintenance(sock, channel, "Yeah, I'm alive and learning.")
             return True
         # Kill
         if (username == channel or username == Conf.owner) and message == Conf.CMD_EXIT:
