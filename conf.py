@@ -4,15 +4,21 @@ class Conf:
     port = 6667
 
     # Bot account conf
+    # Lowercase name
     nickname = ""
+    # oauth generate with https://twitchapps.com/tmi/
     token = ""
 
     # Run config
+    # Lowercase channel to join.
     channel = ""
 
+    # Add users to ignore, lowercase.
     ignoredUsers = [
+        "nightbot", "streamlabs"
     ]
 
+    # Add mods who can use commands, lowercase.
     mods = [
     ]
 
@@ -20,6 +26,9 @@ class Conf:
     # I FEEL DISGUSTING TYPING THEM.
     # BUT BY THIS LIST EXISTING THEY WILL NOT PERPETUATE.
     # Some are here to keep the bot from being political.
+    
+    # I didn't want to commit them to GitHub.
+    # Add your own, case insensitive.
     blacklisted_words = [
     ]
 
@@ -34,4 +43,5 @@ class Conf:
 
     SELF_PREFIX = "Maintenance Message: "
 
+    # Your Twitch name, lowercase.
     owner = ""
